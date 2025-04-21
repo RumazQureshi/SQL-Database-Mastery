@@ -104,17 +104,17 @@ where o.orderid not in (
 -- Result: Order ID, Total Amount
 -- [Total amount is calculated by summing up (Unit Price * Qty)-Discount in order details.]
 -- Query: 
--- select orderid, sum((unitprice * quantity) - discount) as total_amount
--- from orderdetails
--- group by orderid;
+select orderid, sum((unitprice * quantity) - discount) as total_amount
+from orderdetails
+group by orderid;
 
 -- 13.Find country to which maximum of customers belong.
 -- Query: 
--- select country
--- from (
---     select country, COUNT(*) as customer_count
---     from customers
---     group by country
---     order by customer_count desc
--- )
--- where rownum = 1;
+select country
+from (
+    select country, COUNT(*) as customer_count
+    from customers
+    group by country
+    order by customer_count desc
+)
+where rownum = 1;
