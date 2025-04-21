@@ -62,18 +62,18 @@ group by regiondescription;
 -- 8. Fetch no. of employees in each region. If there is no employee in any region, even then region name should appear in the list with employee count of 0.
 -- (RegionName, No. of employees)
 -- Query: 
--- select r.regiondescription as "Region Name", count(distinct et.employeeid) as "No of Employees"
--- from region r
--- left join territories t on r.regionid = t.regionid
--- left join employeeterritories et on t.territoryid = et.territoryid
--- group by r.regiondescription;
+select r.regiondescription as "Region Name", count(distinct et.employeeid) as "No of Employees"
+from region r
+left join territories t on r.regionid = t.regionid
+left join employeeterritories et on t.territoryid = et.territoryid
+group by r.regiondescription;
 
 -- 9.Fetch Customers who have not placed any order. (Customer Name)
 -- Query: 
--- select c.contactname 
--- from customers c
--- left join orders o on c.customerid = o.customerid
--- where o.orderid is null;
+select c.contactname 
+from customers c
+left join orders o on c.customerid = o.customerid
+where o.orderid is null;
 
 -- 10.Select Top 3 employees of company. Employees are ranked on the basis of no. of orders they have processed.
 -- (ROWNUM <= 3, ORDER BY number of orders processed)
