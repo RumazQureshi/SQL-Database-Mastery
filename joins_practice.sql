@@ -1,45 +1,45 @@
 -- 1.Fetch following details
 -- Result: Order No, Order Date, Product Name
 -- Query: 
--- select o.orderid as "Order No", o.orderdate as "Order Date",p.productid as "Product Name"
--- from orders o 
--- join orderdetails od on o.orderid = od.orderid
--- join products p on p.productid = od.productid;
+select o.orderid as "Order No", o.orderdate as "Order Date",p.productid as "Product Name"
+from orders o 
+join orderdetails od on o.orderid = od.orderid
+join products p on p.productid = od.productid;
 
 -- 2.Fetch following details
 -- Result: Order No, Order Date, Product Name, Customer Name
 -- Query: 
--- select o.orderid as "Order No",o.orderdate as "Order Date",p.productid as "Product Name",o.customerid as "Customer Name"
--- from orders o
--- join orderdetails od on o.orderid=od.orderid
--- join products p on p.productid = od.productid;
+select o.orderid as "Order No",o.orderdate as "Order Date",p.productid as "Product Name",o.customerid as "Customer Name"
+from orders o
+join orderdetails od on o.orderid=od.orderid
+join products p on p.productid = od.productid;
 
 -- 3.Fetch following details
 -- Result: Order No, Order Date, Product Name, Category Name, Customer Name
 -- Query: 
--- select o.orderid as "Order No",o.orderdate as "Order Date",p.productid as "Product Name",p.categoryid as "Category Name",o.customerid as "Customer Name"
--- from orders o
--- inner join orderdetails od on o.orderid=od.orderid
--- inner join products p on p.productid = od.productid;	
+select o.orderid as "Order No",o.orderdate as "Order Date",p.productid as "Product Name",p.categoryid as "Category Name",o.customerid as "Customer Name"
+from orders o
+inner join orderdetails od on o.orderid=od.orderid
+inner join products p on p.productid = od.productid;	
 
 -- 4.Select all orders having products belonging to ‘Sea Food’ category 
 -- Result: OrderNo, OrderDate, Product Name
 -- Query: 
--- select o.orderid,o.orderdate,p.productname
--- from orders o 
--- inner join orderdetails od on o.orderid = od.orderid
--- inner join products p on p.productid = od.productid
--- inner join categories cs on p.categoryid =cs.categoryid 
--- where cs.categoryname='Seafood';
+select o.orderid,o.orderdate,p.productname
+from orders o 
+inner join orderdetails od on o.orderid = od.orderid
+inner join products p on p.productid = od.productid
+inner join categories cs on p.categoryid =cs.categoryid 
+where cs.categoryname='Seafood';
 
 -- 5.List suppliers in the order of no. of products supplied (Supplier Name, No Of Products). 
 -- Result: Supplier Name, No. of Products
 -- Query: 
--- select s.companyname as "Supplier Name",count(p.productid) as "No of Products"
--- from suppliers s
--- inner join products p on p.supplierid = s.supplierid
--- group by s.companyname
--- order by count(p.productid) DESC;
+select s.companyname as "Supplier Name",count(p.productid) as "No of Products"
+from suppliers s
+inner join products p on p.supplierid = s.supplierid
+group by s.companyname
+order by count(p.productid) DESC;
 
 -- 6.Select Suppliers supplying more than 4 products. 
 -- Result: Supplier Name
