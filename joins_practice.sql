@@ -44,11 +44,11 @@ order by count(p.productid) DESC;
 -- 6.Select Suppliers supplying more than 4 products. 
 -- Result: Supplier Name
 -- Query: 
--- select s.companyname as "Supplier Name"
--- from suppliers s
--- inner join products p on p.supplierid = s.supplierid
--- group by s.companyname
--- having count(p.productid)>4;
+select s.companyname as "Supplier Name"
+from suppliers s
+inner join products p on p.supplierid = s.supplierid
+group by s.companyname
+having count(p.productid)>4;
 
 -- 7.Fetch no. of employees working in each region. 
 -- (RegionName, No. of employees)
