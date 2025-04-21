@@ -53,11 +53,11 @@ having count(p.productid)>4;
 -- 7.Fetch no. of employees working in each region. 
 -- (RegionName, No. of employees)
 -- Query: 
--- select r.regiondescription as "Region Name" , count(distinct et.employeeid) as "No of Employees"
--- from employeeterritories et
--- inner join territories t on et.territoryid = t.territoryid
--- inner join region r on r.regionid = t.regionid
--- group by regiondescription; 
+select r.regiondescription as "Region Name" , count(distinct et.employeeid) as "No of Employees"
+from employeeterritories et
+inner join territories t on et.territoryid = t.territoryid
+inner join region r on r.regionid = t.regionid
+group by regiondescription; 
 
 -- 8. Fetch no. of employees in each region. If there is no employee in any region, even then region name should appear in the list with employee count of 0.
 -- (RegionName, No. of employees)
